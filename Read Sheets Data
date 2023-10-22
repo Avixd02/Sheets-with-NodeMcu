@@ -1,0 +1,13 @@
+var SS = SpreadsheetApp.openById('ID');
+var sheet = SS.getSheetByName('Sheet1');
+
+function doGet(e){
+  
+  var read = e.parameter.read;
+  
+  if (read !== undefined){
+    return ContentService.createTextOutput(sheet.getRange(read).getValue());
+  }
+  
+  return ContentService.createTextOutput("No value passed as argument to script Url.");
+}
